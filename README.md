@@ -295,19 +295,49 @@ The platform combines skill and interview performance to provide an overall prep
 
 ## 📸 Screenshots
 
-Screenshots of the CareerMind AI dashboard and major features are available in the project documentation.
+### 🏠 Dashboard
 
-Recommended screenshots:
+![CareerMind AI Dashboard](screenshots/01-dashboard.png)
 
-* CareerMind AI Dashboard
-* CV Intelligence
-* Job Intelligence
-* Skill Gap Analysis
-* Career Roadmap
-* AI Interview Room
-* Interview Progress
-* Career Readiness
+### 📄 CV Intelligence
 
+![CV Intelligence](screenshots/02-cv-intelligence.png)
+
+### 🎯 Career Readiness
+
+![Career Readiness](screenshots/03-career-readiness.png)
+
+### 💼 Job Intelligence
+
+![Job Intelligence](screenshots/04-job-intelligence.png)
+
+### 📊 Skill Gap Analysis
+
+![Skill Gap Analysis](screenshots/05-skill-gap-analysis.png)
+
+### 🗺️ Career Roadmap
+
+![Career Roadmap](screenshots/06-career-roadmap.png)
+
+### 🎤 AI Interview Questions
+
+![AI Interview Questions](screenshots/07-ai-interview-questions.png)
+
+### 💬 AI Interview Answer
+
+![AI Interview Answer](screenshots/08-ai-interview-answer.png)
+
+### 📚 Interview History
+
+![Interview History](screenshots/09-interview-history.png)
+
+### 📈 Interview Progress
+
+![Interview Progress](screenshots/10-interview-progress.png)
+
+### 🚀 Project Overview
+
+![CareerMind AI Project Overview](screenshots/11-project-overview.png)
 ---
 
 ## ▶️ Running the Project Locally
