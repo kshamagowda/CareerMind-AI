@@ -11,21 +11,22 @@ public class SkillGapService {
             String resumeSkills,
             String requiredSkills) {
 
-        // Convert resume skills into a set
-        Set<String> resumeSkillSet = convertToSet(resumeSkills);
+        Set<String> resumeSkillSet =
+                normalizeSkills(convertToSet(resumeSkills));
 
-        // Convert required job skills into a set
-        Set<String> requiredSkillSet = convertToSet(requiredSkills);
+        Set<String> requiredSkillSet =
+                normalizeSkills(convertToSet(requiredSkills));
 
-        // Find matched skills
-        Set<String> matchedSkills = new LinkedHashSet<>(resumeSkillSet);
+        Set<String> matchedSkills =
+                new LinkedHashSet<>(resumeSkillSet);
+
         matchedSkills.retainAll(requiredSkillSet);
 
-        // Find missing skills
-        Set<String> missingSkills = new LinkedHashSet<>(requiredSkillSet);
+        Set<String> missingSkills =
+                new LinkedHashSet<>(requiredSkillSet);
+
         missingSkills.removeAll(resumeSkillSet);
 
-        // Calculate match percentage
         double matchPercentage = 0;
 
         if (!requiredSkillSet.isEmpty()) {
@@ -34,12 +35,11 @@ public class SkillGapService {
                             / requiredSkillSet.size()) * 100;
         }
 
-        // Round to 2 decimal places
         matchPercentage =
                 Math.round(matchPercentage * 100.0) / 100.0;
 
-        // Prepare result
-        Map<String, Object> result = new LinkedHashMap<>();
+        Map<String, Object> result =
+                new LinkedHashMap<>();
 
         result.put("matchedSkills", matchedSkills);
         result.put("missingSkills", missingSkills);
@@ -50,17 +50,20 @@ public class SkillGapService {
 
     private Set<String> convertToSet(String skills) {
 
-        Set<String> skillSet = new LinkedHashSet<>();
+        Set<String> skillSet =
+                new LinkedHashSet<>();
 
         if (skills == null || skills.isBlank()) {
             return skillSet;
         }
 
-        String[] skillArray = skills.split(",");
+        String[] skillArray =
+                skills.split(",");
 
         for (String skill : skillArray) {
 
-            String cleanedSkill = skill.trim().toLowerCase();
+            String cleanedSkill =
+                    skill.trim().toLowerCase();
 
             if (!cleanedSkill.isEmpty()) {
                 skillSet.add(cleanedSkill);
@@ -68,5 +71,25 @@ public class SkillGapService {
         }
 
         return skillSet;
+    }
+
+    private Set<String> normalizeSkills(Set<String> skills) {
+
+        Set<String> normalizedSkills =
+                new LinkedHashSet<>();
+
+        for (String skill : skills) {
+
+            if (skill.equalsIgnoreCase("rest")
+                    || skill.equalsIgnoreCase("REST APIs")) {
+
+                normalizedSkills.add("REST APIs");
+
+            } else {
+                normalizedSkills.add(skill);
+            }
+        }
+
+        return normalizedSkills;
     }
 }

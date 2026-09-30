@@ -4,7 +4,6 @@
 
 <head>
 
-    ```
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,89 +11,182 @@
 
     <style>
 
+        /* ================================
+   CareerMind AI - Main Theme
+   ================================ */
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
-            line-height: 1.6;
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --secondary: #2563eb;
+            --accent: #ec4899;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --card: rgba(255, 255, 255, 0.92);
+            --border: rgba(124, 58, 237, 0.12);
+            --shadow: 0 12px 35px rgba(76, 29, 149, 0.10);
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                    radial-gradient(circle at 10% 10%, rgba(124, 58, 237, 0.10), transparent 30%),
+                    radial-gradient(circle at 90% 20%, rgba(236, 72, 153, 0.09), transparent 28%),
+                    linear-gradient(135deg, #f8f7ff, #f5f9ff 50%, #fff7fb);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ================================
+           Header
+           ================================ */
+
         header {
-            background: #111827;
+            background: linear-gradient(
+                    135deg,
+                    #4c1d95,
+                    #6d28d9,
+                    #2563eb
+            );
             color: white;
             padding: 20px 60px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.20);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 26px;
-            font-weight: bold;
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
         .tagline {
             font-size: 14px;
-            color: #d1d5db;
+            color: rgba(255, 255, 255, 0.82);
         }
+
+        /* ================================
+           Hero
+           ================================ */
 
         .hero {
             text-align: center;
-            padding: 55px 20px 35px;
-            background: white;
+            padding: 75px 20px 55px;
+            background:
+                    radial-gradient(circle at 50% 0%, rgba(124, 58, 237, 0.15), transparent 45%),
+                    rgba(255, 255, 255, 0.70);
+            border-bottom: 1px solid rgba(124, 58, 237, 0.08);
         }
 
         .hero h1 {
-            font-size: 38px;
-            margin-bottom: 12px;
-            color: #111827;
+            font-size: 44px;
+            margin-bottom: 14px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(
+                    90deg,
+                    #5b21b6,
+                    #7c3aed,
+                    #2563eb,
+                    #db2777
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .hero p {
             font-size: 17px;
-            color: #6b7280;
+            color: var(--muted);
             max-width: 750px;
             margin: auto;
         }
 
+        /* ================================
+           Main Container
+           ================================ */
+
         .container {
             width: 90%;
             max-width: 1100px;
-            margin: 35px auto;
+            margin: 40px auto;
         }
 
+        /* ================================
+           Main Cards
+           ================================ */
+
         .card {
-            background: white;
-            border-radius: 14px;
-            padding: 28px;
-            margin-bottom: 25px;
-            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+            background: var(--card);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 28px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 45px rgba(76, 29, 149, 0.14);
         }
 
         .card h2 {
             margin-bottom: 10px;
-            color: #111827;
+            color: #312e81;
+            font-size: 24px;
         }
 
         .card-description {
-            color: #6b7280;
+            color: var(--muted);
             margin-bottom: 20px;
         }
 
+        /* ================================
+           Inputs
+           ================================ */
+
         input[type="file"],
+        input[type="text"],
         textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
+            padding: 14px 16px;
+            border: 1px solid rgba(124, 58, 237, 0.18);
+            border-radius: 12px;
             margin-bottom: 15px;
             font-size: 15px;
+            font-family: inherit;
+            background: rgba(255, 255, 255, 0.85);
+            color: var(--text);
+            transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        input[type="file"]:focus,
+        input[type="text"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.10);
         }
 
         textarea {
@@ -102,40 +194,82 @@
             resize: vertical;
         }
 
+        /* ================================
+           Buttons
+           ================================ */
+
         button {
-            background: #2563eb;
+            background: linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #2563eb
+            );
             color: white;
             border: none;
-            padding: 12px 22px;
-            border-radius: 8px;
+            padding: 13px 24px;
+            border-radius: 11px;
             cursor: pointer;
             font-size: 15px;
-            font-weight: bold;
+            font-weight: 700;
+            box-shadow: 0 7px 18px rgba(99, 102, 241, 0.22);
+            transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease,
+                    opacity 0.2s ease;
         }
 
         button:hover {
-            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(99, 102, 241, 0.30);
         }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+        /* ================================
+           Status
+           ================================ */
 
         .status {
             margin-top: 15px;
-            padding: 12px;
-            border-radius: 8px;
+            padding: 13px;
+            border-radius: 10px;
             display: none;
+            background: rgba(124, 58, 237, 0.07);
+            border: 1px solid rgba(124, 58, 237, 0.12);
         }
+
+        /* ================================
+           Analysis
+           ================================ */
 
         .analysis-box {
             margin-top: 20px;
             padding: 22px;
-            border-radius: 10px;
-            background: #f9fafb;
-            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            background: linear-gradient(
+                    135deg,
+                    rgba(124, 58, 237, 0.05),
+                    rgba(37, 99, 235, 0.05)
+            );
+            border: 1px solid rgba(124, 58, 237, 0.10);
         }
 
         .analysis-box h3 {
             margin-bottom: 15px;
-            color: #111827;
+            color: #312e81;
         }
+
+        /* ================================
+           Feature Cards
+           ================================ */
 
         .features {
             display: grid;
@@ -145,53 +279,520 @@
         }
 
         .feature {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.90);
+            padding: 26px;
+            border-radius: 18px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(124, 58, 237, 0.10);
+            box-shadow: 0 8px 25px rgba(76, 29, 149, 0.07);
+            transition:
+                    transform 0.25s ease,
+                    box-shadow 0.25s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(76, 29, 149, 0.12);
         }
 
         .feature h3 {
             margin-bottom: 8px;
-            color: #111827;
+            color: #312e81;
         }
 
         .feature p {
-            color: #6b7280;
+            color: var(--muted);
             font-size: 14px;
         }
 
+        /* ================================
+           AI Interview Room
+           ================================ */
+
+        .interview-card {
+            margin-top: 20px;
+            padding: 26px;
+            border-radius: 18px;
+            background:
+                    linear-gradient(
+                            135deg,
+                            rgba(124, 58, 237, 0.07),
+                            rgba(37, 99, 235, 0.06)
+                    );
+            border: 1px solid rgba(124, 58, 237, 0.13);
+        }
+
+        .interview-card label {
+            display: block;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #3730a3;
+        }
+
+        .question-box {
+            margin-top: 22px;
+            margin-bottom: 22px;
+            padding: 22px;
+            border-radius: 16px;
+            background: linear-gradient(
+                    135deg,
+                    #f5f3ff,
+                    #eff6ff
+            );
+            border: 1px solid rgba(124, 58, 237, 0.12);
+            border-left: 5px solid #7c3aed;
+        }
+
+        .question-label {
+            color: #7c3aed;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+        }
+
+        .question-box h3 {
+            color: #1e1b4b;
+            font-size: 20px;
+            line-height: 1.6;
+        }
+
+        /* ================================
+           Interview Answer
+           ================================ */
+
+        #interviewAnswer {
+            width: 100%;
+            min-height: 160px;
+            padding: 16px;
+            margin-top: 8px;
+            border-radius: 13px;
+            border: 1px solid rgba(124, 58, 237, 0.15);
+            background: rgba(255, 255, 255, 0.90);
+            font-family: inherit;
+            font-size: 15px;
+            line-height: 1.6;
+            resize: vertical;
+            transition:
+                    border-color 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        #interviewAnswer:focus {
+            outline: none;
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.10);
+        }
+
+        #interviewAnswer::placeholder {
+            color: #9ca3af;
+        }
+
+        .interview-card button {
+            margin-top: 14px;
+        }
+
+        .interview-card button:disabled {
+            opacity: 0.65;
+            cursor: wait;
+            transform: none;
+        }
+
+        /* ================================
+           Interview Evaluation
+           ================================ */
+
+        #interviewResult {
+            margin-top: 25px;
+        }
+
+        .score-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 24px;
+            margin-bottom: 18px;
+            border-radius: 18px;
+            background: linear-gradient(
+                    135deg,
+                    #f5f3ff,
+                    #eff6ff
+            );
+            border: 1px solid rgba(124, 58, 237, 0.12);
+        }
+
+        .score-box span {
+            font-size: 16px;
+            color: #6b7280;
+        }
+
+        .score-box strong {
+            font-size: 44px;
+            font-weight: 800;
+            color: #7c3aed;
+        }
+
+        .feedback-box {
+            padding: 23px;
+            border-radius: 18px;
+            background: linear-gradient(
+                    135deg,
+                    #fff7ed,
+                    #fdf2f8
+            );
+            border: 1px solid rgba(236, 72, 153, 0.12);
+        }
+
+        .feedback-box h3 {
+            margin-top: 0;
+            margin-bottom: 16px;
+            color: #9d174d;
+        }
+
+        #interviewFeedback {
+            line-height: 1.7;
+            color: #374151;
+        }
+
+        /* ================================
+           Interview History
+           ================================ */
+
+        .interview-history-card {
+            margin-top: 16px;
+            padding: 21px;
+            border-radius: 17px;
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid rgba(124, 58, 237, 0.10);
+            box-shadow: 0 7px 22px rgba(76, 29, 149, 0.06);
+            transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        .interview-history-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(76, 29, 149, 0.10);
+        }
+
+        .interview-history-card h3 {
+            margin-top: 0;
+            margin-bottom: 12px;
+            color: #4c1d95;
+        }
+
+        .interview-history-card p {
+            line-height: 1.6;
+            color: #4b5563;
+        }
+
+        .interview-history-card details {
+            margin-top: 14px;
+        }
+
+        .interview-history-card summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: #7c3aed;
+        }
+
+        .interview-history-card details p {
+            margin-top: 12px;
+            padding: 15px;
+            border-radius: 11px;
+            background: #faf5ff;
+            border: 1px solid rgba(124, 58, 237, 0.08);
+        }
+
+        /* ================================
+           Interview Progress Analytics
+           ================================ */
+
+        .interview-analytics {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .analytics-card {
+            padding: 22px;
+            border-radius: 17px;
+            text-align: center;
+            background: linear-gradient(
+                    135deg,
+                    rgba(124, 58, 237, 0.08),
+                    rgba(37, 99, 235, 0.07)
+            );
+            border: 1px solid rgba(124, 58, 237, 0.10);
+            transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        .analytics-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(76, 29, 149, 0.12);
+        }
+
+        .analytics-card span {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 8px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+
+        .analytics-card strong {
+            display: block;
+            font-size: 32px;
+            font-weight: 800;
+            background: linear-gradient(
+                    90deg,
+                    #7c3aed,
+                    #2563eb
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* ================================
+           Footer
+           ================================ */
+
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            background: #111827;
-            color: #d1d5db;
+            padding: 32px;
+            margin-top: 55px;
+            background: linear-gradient(
+                    135deg,
+                    #312e81,
+                    #4c1d95,
+                    #1e3a8a
+            );
+            color: rgba(255, 255, 255, 0.80);
+        }
+
+        /* ================================
+           Responsive Design
+           ================================ */
+
+        @media (max-width: 900px) {
+
+            header {
+                padding: 18px 30px;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .interview-analytics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
         }
 
         @media (max-width: 768px) {
 
             header {
-                padding: 18px 25px;
+                padding: 18px 22px;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .hero {
+                padding: 55px 20px 40px;
             }
 
             .hero h1 {
-                font-size: 30px;
+                font-size: 34px;
+            }
+
+            .container {
+                width: 94%;
+                margin-top: 25px;
+            }
+
+            .card {
+                padding: 22px;
             }
 
             .features {
                 grid-template-columns: 1fr;
             }
 
-            .container {
-                width: 94%;
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 29px;
+            }
+
+            .interview-analytics {
+                grid-template-columns: 1fr;
+            }
+
+            .score-box strong {
+                font-size: 36px;
+            }
+
+            button {
+                width: 100%;
             }
 
         }
+        /* ================================
+   Skill Gap Analysis - Visual Polish
+   ================================ */
 
+        #skillGapResult {
+            margin-top: 20px;
+            padding: 24px;
+            border-radius: 18px;
+            background: linear-gradient(
+                    135deg,
+                    #faf5ff,
+                    #eff6ff
+            );
+            border: 1px solid rgba(124, 58, 237, 0.12);
+        }
+
+        /* Skill Match heading */
+        #skillGapResult h3 {
+            margin-bottom: 8px;
+            color: #4c1d95;
+            font-size: 22px;
+        }
+
+        /* Match percentage */
+        #skillGapResult > div:first-of-type {
+            display: inline-block;
+            padding: 10px 18px;
+            border-radius: 14px;
+            background: linear-gradient(
+                    135deg,
+                    #7c3aed,
+                    #2563eb
+            );
+            color: white !important;
+            font-size: 32px !important;
+            font-weight: 800 !important;
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.20);
+        }
+
+        /* Section headings */
+        #skillGapResult h4 {
+            color: #3730a3;
+            font-size: 16px;
+        }
+
+        /* Skill badges created by JavaScript */
+        #skillGapResult span {
+            display: inline-block;
+            margin: 5px 6px 5px 0;
+            transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        #skillGapResult span:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(76, 29, 149, 0.12);
+        }
+        /* ================================
+   Personalized Roadmap - Visual Polish
+   ================================ */
+
+        #roadmapSection {
+            position: relative;
+        }
+
+        /* Roadmap result container */
+        #roadmapResult {
+            margin-top: 22px;
+        }
+
+        /* Individual roadmap steps */
+        #roadmapResult > div {
+            position: relative;
+            margin-bottom: 18px;
+            padding: 22px 24px;
+            border-radius: 18px;
+            background: linear-gradient(
+                    135deg,
+                    #faf5ff,
+                    #eff6ff
+            );
+            border: 1px solid rgba(124, 58, 237, 0.12);
+            box-shadow: 0 8px 22px rgba(76, 29, 149, 0.07);
+            transition:
+                    transform 0.2s ease,
+                    box-shadow 0.2s ease;
+        }
+
+        /* Hover effect */
+        #roadmapResult > div:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 13px 30px rgba(76, 29, 149, 0.12);
+        }
+
+        /* Roadmap headings */
+        #roadmapResult h3,
+        #roadmapResult h4 {
+            color: #4c1d95;
+            margin-bottom: 10px;
+        }
+
+        /* Roadmap text */
+        #roadmapResult p {
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+
+        /* Strong labels such as Duration / Topics / Project */
+        #roadmapResult strong {
+            color: #3730a3;
+        }
+
+        /* Lists inside roadmap */
+        #roadmapResult ul {
+            margin: 10px 0 12px 20px;
+            color: #4b5563;
+        }
+
+        #roadmapResult li {
+            margin-bottom: 6px;
+        }
+
+        /* Buttons inside roadmap */
+        #roadmapResult button {
+            margin-top: 10px;
+        }
+
+        /* Roadmap loading message */
+        #roadmapResult > p:first-child {
+            padding: 18px;
+            border-radius: 14px;
+            background: #f5f3ff;
+            color: #6d28d9;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* Mobile roadmap */
+        @media (max-width: 600px) {
+
+            #roadmapResult > div {
+                padding: 18px;
+            }
+
+        }
     </style>
-    ```
 
 </head>
 
@@ -199,7 +800,6 @@
 
 <header>
 
-    ```
     <div class="logo">
         CareerMind AI
     </div>
@@ -207,13 +807,11 @@
     <div class="tagline">
         Your AI Career Intelligence Platform
     </div>
-    ```
 
 </header>
 
 <section class="hero">
 
-    ```
     <h1>
         Build Your Career with AI
     </h1>
@@ -222,13 +820,11 @@
         Analyze your CV, understand job requirements,
         identify skill gaps, and get a personalized learning roadmap.
     </p>
-    ```
 
 </section>
 
 <main class="container">
 
-    ```
     <!-- CV Intelligence -->
 
     <section class="card">
@@ -282,7 +878,7 @@
         <textarea
                 id="jobDescription"
                 placeholder="Paste the complete job description here...">
-</textarea>
+        </textarea>
 
         <button onclick="analyzeJob()">
             Analyze Job
@@ -346,6 +942,162 @@
     </section>
 
 
+    <!-- AI Interview Room -->
+
+    <section
+            class="card"
+            id="interviewSection">
+
+        <h2>
+            AI Interview Room
+        </h2>
+
+        <p class="card-description">
+            Practice interview questions and receive instant feedback on your answers.
+        </p>
+
+        <div class="interview-card">
+
+            <label for="interviewJobTitle">
+                Job Title
+            </label>
+
+            <input
+                    type="text"
+                    id="interviewJobTitle"
+                    placeholder="e.g. Software Engineer"
+            >
+
+            <button onclick="startInterview()">
+                Start Interview
+            </button>
+
+            <div
+                    id="interviewArea"
+                    style="display: none;">
+
+                <div class="question-box">
+
+                    <p class="question-label">
+                        Interview Question
+                    </p>
+
+                    <h3 id="interviewQuestion">
+                    </h3>
+
+                </div>
+
+                <label for="interviewAnswer">
+                    Your Answer
+                </label>
+
+                <textarea
+                        id="interviewAnswer"
+                        rows="7"
+                        placeholder="Type your answer here...">
+                </textarea>
+
+                <button onclick="submitInterviewAnswer()">
+                    Submit Answer
+                </button>
+
+                <div
+                        id="interviewResult"
+                        style="display: none;">
+
+                    <div class="score-box">
+
+                        <span>
+                            Score
+                        </span>
+
+                        <strong id="interviewScore">
+                        </strong>
+
+                        <span>
+                            / 100
+                        </span>
+
+                    </div>
+
+                    <div class="feedback-box">
+
+                        <h3>
+                            Interview Feedback
+                        </h3>
+
+                        <p id="interviewFeedback">
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <section
+            class="card"
+            id="interviewHistorySection">
+
+        <h2>
+            Interview History
+        </h2>
+
+        <p class="card-description">
+            Review your previous AI interview attempts and scores.
+        </p>
+
+        <div id="interviewHistory">
+
+            <p>
+                No interview attempts yet.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section
+            class="card"
+            id="interviewAnalyticsSection">
+
+        <h2>
+            Interview Progress
+        </h2>
+
+        <p class="card-description">
+            Track your interview performance and improvement over time.
+        </p>
+
+        <div class="interview-analytics">
+
+            <div class="analytics-card">
+                <span>Total Interviews</span>
+                <strong id="totalInterviews">0</strong>
+            </div>
+
+            <div class="analytics-card">
+                <span>Average Score</span>
+                <strong id="averageInterviewScore">0</strong>
+            </div>
+
+            <div class="analytics-card">
+                <span>Best Score</span>
+                <strong id="bestInterviewScore">0</strong>
+            </div>
+
+            <div class="analytics-card">
+                <span>Latest Score</span>
+                <strong id="latestInterviewScore">0</strong>
+            </div>
+
+        </div>
+
+    </section>
+
     <!-- Features -->
 
     <section class="features">
@@ -379,36 +1131,39 @@
         <div class="feature">
 
             <h3>
-                Career Learning Roadmap
+                AI Interview Room
             </h3>
 
             <p>
-                Creates a learning plan based on your missing skills.
+                Practice interview questions and receive instant answer feedback.
             </p>
 
         </div>
 
     </section>
-    ```
 
 </main>
 
 <footer>
 
-    ```
     <p>
         CareerMind AI &copy; 2026
     </p>
-    ```
 
 </footer>
 
-<script>
 
+<script>
 
     let resumeId = null;
 
     let jobId = null;
+
+    let interviewQuestions = [];
+
+    let currentQuestionIndex = 0;
+
+    let currentInterviewQuestion = "";
 
 
     // --------------------------------------------------
@@ -826,8 +1581,6 @@
 
                     tag.style.fontWeight =
                         "bold";
-
-
                     matchedContainer.appendChild(
                         tag
                     );
@@ -1051,26 +1804,6 @@
                     document.createElement("div");
 
 
-                stepBox.style.background =
-                    "#f9fafb";
-
-
-                stepBox.style.border =
-                    "1px solid #e5e7eb";
-
-
-                stepBox.style.borderRadius =
-                    "10px";
-
-
-                stepBox.style.padding =
-                    "18px";
-
-
-                stepBox.style.marginBottom =
-                    "15px";
-
-
                 const title =
                     document.createElement("h3");
 
@@ -1080,14 +1813,6 @@
                     step.step +
                     ": " +
                     capitalizeSkill(step.skill);
-
-
-                title.style.color =
-                    "#2563eb";
-
-
-                title.style.marginBottom =
-                    "10px";
 
 
                 const duration =
@@ -1135,14 +1860,6 @@
                     document.createElement("ul");
 
 
-                topicsList.style.marginLeft =
-                    "20px";
-
-
-                topicsList.style.marginTop =
-                    "5px";
-
-
                 if (
                     Array.isArray(step.topics)
                 ) {
@@ -1170,10 +1887,6 @@
 
                 const project =
                     document.createElement("p");
-
-
-                project.style.marginTop =
-                    "10px";
 
 
                 const projectLabel =
@@ -1230,9 +1943,438 @@
 
     }
 
+    // --------------------------------------------------
+    // Start Interview
+    // --------------------------------------------------
+
+    async function startInterview() {
+
+        const jobTitle =
+            document
+                .getElementById("interviewJobTitle")
+                .value
+                .trim();
+
+
+        if (!jobTitle) {
+
+            alert("Please enter a job title first.");
+
+            return;
+        }
+
+
+        const interviewArea =
+            document.getElementById(
+                "interviewArea"
+            );
+
+
+        const questionElement =
+            document.getElementById(
+                "interviewQuestion"
+            );
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `/api/interviews/questions?jobTitle=${encodeURIComponent(jobTitle)}`
+                );
+
+
+            if (!response.ok) {
+
+                alert(
+                    "Unable to generate interview questions."
+                );
+
+                return;
+            }
+
+
+            interviewQuestions =
+                await response.json();
+
+
+            if (
+                !Array.isArray(interviewQuestions) ||
+                interviewQuestions.length === 0
+            ) {
+
+                alert(
+                    "No interview questions were generated."
+                );
+
+                return;
+            }
+
+
+            currentQuestionIndex = 0;
+
+
+            currentInterviewQuestion =
+                interviewQuestions[
+                    currentQuestionIndex
+                    ];
+
+
+            questionElement.textContent =
+                currentInterviewQuestion;
+
+
+            interviewArea.style.display =
+                "block";
+
+
+            document.getElementById(
+                "interviewResult"
+            ).style.display = "none";
+
+
+            document.getElementById(
+                "interviewAnswer"
+            ).value = "";
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            alert(
+                "Unable to connect to the interview service."
+            );
+
+        }
+
+    }
+
 
     // --------------------------------------------------
-    // Format Skill Names
+    // Submit Interview Answer
+    // --------------------------------------------------
+
+    async function submitInterviewAnswer() {
+
+        const answer =
+            document
+                .getElementById("interviewAnswer")
+                .value
+                .trim();
+
+
+        if (!answer) {
+
+            alert(
+                "Please enter your answer first."
+            );
+
+            return;
+        }
+
+
+        if (!currentInterviewQuestion) {
+
+            alert(
+                "No interview question is available."
+            );
+
+            return;
+        }
+        const submitButton =
+            document.querySelector(
+                'button[onclick="submitInterviewAnswer()"]'
+            );
+
+        submitButton.disabled = true;
+        submitButton.textContent =
+            "⏳ Evaluating your answer...";
+
+        try {
+
+            const response =
+                await fetch(
+                    `/api/interviews/ai-evaluate?question=${encodeURIComponent(currentInterviewQuestion)}&answer=${encodeURIComponent(answer)}&jobTitle=${encodeURIComponent(document.getElementById("interviewJobTitle").value.trim())}`,
+                    {
+                        method: "POST"
+                    }
+                );
+
+            if (!response.ok) {
+
+                alert(
+                    "Unable to get AI evaluation."
+                );
+
+                return;
+            }
+
+
+            const result =
+                await response.text();
+
+
+            const scoreMatch =
+                result.match(/\*{0,2}Score\*{0,2}:\s*(\d+)/i);
+
+            document.getElementById(
+                "interviewScore"
+            ).textContent =
+                scoreMatch
+                    ? scoreMatch[1]
+                    : "—";
+
+
+            const feedbackElement =
+                document.getElementById(
+                    "interviewFeedback"
+                );
+
+            feedbackElement.innerHTML = result
+                .replace(
+                    /Evaluation:/gi,
+                    "<strong>Evaluation:</strong>"
+                )
+                .replace(
+                    /Strengths:/gi,
+                    "<br><br><strong>Strengths:</strong>"
+                )
+                .replace(
+                    /Improvements:/gi,
+                    "<br><br><strong>Improvements:</strong>"
+                )
+                .replace(
+                    /Better Answer:/gi,
+                    "<br><br><strong>Better Answer:</strong>"
+                )
+                .replace(
+                    /\n/g,
+                    "<br>"
+                );
+
+
+            document.getElementById(
+                "interviewResult"
+            ).style.display =
+                "block";
+            await loadInterviewHistory();
+            // Move automatically to the next interview question
+            currentQuestionIndex++;
+
+            if (currentQuestionIndex < interviewQuestions.length) {
+
+                currentInterviewQuestion =
+                    interviewQuestions[currentQuestionIndex];
+
+                document.getElementById(
+                    "interviewQuestion"
+                ).textContent =
+                    currentInterviewQuestion;
+
+                document.getElementById(
+                    "interviewAnswer"
+                ).value = "";
+
+
+            } else {
+
+                alert(
+                    "🎉 You have completed all interview questions!"
+                );
+
+            }
+
+
+        } catch (error) {
+
+            console.error(error);
+
+
+            alert(
+                "Unable to connect to the AI Interview Room."
+            );
+
+        }
+        finally {
+
+            submitButton.disabled = false;
+            submitButton.textContent =
+                "Submit Answer";
+        }
+
+    }
+    async function loadInterviewHistory() {
+
+        const historyContainer =
+            document.getElementById("interviewHistory");
+
+        try {
+
+            const response =
+                await fetch("/api/interviews");
+
+            if (!response.ok) {
+
+                historyContainer.innerHTML =
+                    "<p>Unable to load interview history.</p>";
+
+                return;
+            }
+
+            const interviews =
+                await response.json();
+
+            if (!Array.isArray(interviews)
+                || interviews.length === 0) {
+
+                historyContainer.innerHTML =
+                    "<p>No interview attempts yet.</p>";
+
+                return;
+            }
+
+            historyContainer.innerHTML = "";
+
+            interviews
+                .slice()
+                .reverse()
+                .forEach(function(interview) {
+
+                    const card =
+                        document.createElement("div");
+
+                    card.className =
+                        "interview-history-card";
+
+                    card.innerHTML = `
+                    <h3>${interview.jobTitle}</h3>
+
+                    <p>
+                        <strong>Score:</strong>
+                        ${interview.score ?? "—"} / 100
+                    </p>
+
+                    <p>
+                        <strong>Question:</strong>
+                        ${interview.question}
+                    </p>
+
+                    <details>
+                        <summary>View Feedback</summary>
+
+                        <p>
+                            ${interview.feedback
+                        ? interview.feedback.replace(/\n/g, "<br>")
+                        : "No feedback available."}
+                        </p>
+                    </details>
+                `;
+
+                    historyContainer.appendChild(card);
+
+                });
+
+        } catch (error) {
+
+            console.error(error);
+
+            historyContainer.innerHTML =
+                "<p>Unable to connect to the interview service.</p>";
+        }
+    }
+    async function loadInterviewAnalytics() {
+
+        try {
+
+            const response =
+                await fetch("/api/interviews");
+
+            if (!response.ok) {
+                return;
+            }
+
+            const interviews =
+                await response.json();
+
+            if (!Array.isArray(interviews)
+                || interviews.length === 0) {
+
+                document.getElementById(
+                    "totalInterviews"
+                ).textContent = "0";
+
+                document.getElementById(
+                    "averageInterviewScore"
+                ).textContent = "0";
+
+                document.getElementById(
+                    "bestInterviewScore"
+                ).textContent = "0";
+
+                document.getElementById(
+                    "latestInterviewScore"
+                ).textContent = "0";
+
+                return;
+            }
+
+            const scores =
+                interviews
+                    .map(interview => interview.score)
+                    .filter(score => score !== null
+                        && score !== undefined);
+
+            const total =
+                interviews.length;
+
+            const average =
+                scores.length > 0
+                    ? Math.round(
+                        scores.reduce(
+                            (sum, score) => sum + score,
+                            0
+                        ) / scores.length
+                    )
+                    : 0;
+
+            const best =
+                scores.length > 0
+                    ? Math.max(...scores)
+                    : 0;
+
+            const latest =
+                scores.length > 0
+                    ? scores[scores.length - 1]
+                    : 0;
+
+            document.getElementById(
+                "totalInterviews"
+            ).textContent = total;
+
+            document.getElementById(
+                "averageInterviewScore"
+            ).textContent = String(average);
+
+            document.getElementById(
+                "bestInterviewScore"
+            ).textContent = String(best);
+
+            document.getElementById(
+                "latestInterviewScore"
+            ).textContent = latest;
+
+        } catch (error) {
+
+            console.error(
+                "Unable to load interview analytics:",
+                error
+            );
+
+        }
+    }
+    // --------------------------------------------------
+    // Helper Functions
     // --------------------------------------------------
 
     function capitalizeSkill(
@@ -1246,108 +2388,58 @@
         }
 
 
-        const specialNames = {
+        const normalizedSkill =
+            skill.trim().toLowerCase();
 
-            "java": "Java",
 
-            "python": "Python",
-
-            "javascript": "JavaScript",
-
-            "c": "C",
-
-            "c++": "C++",
-
-            "sql": "SQL",
-
-            "html": "HTML",
-
-            "css": "CSS",
-
-            "spring boot": "Spring Boot",
-
-            "spring": "Spring",
-
-            "node.js": "Node.js",
-
-            "express.js": "Express.js",
-
-            "rest apis": "REST APIs",
-
-            "rest": "REST",
+        const specialCases = {
 
             "mysql": "MySQL",
 
-            "sqlite": "SQLite",
+            "sql": "SQL",
 
-            "mongodb": "MongoDB",
+            "javascript": "JavaScript",
+
+            "typescript": "TypeScript",
+
+            "node.js": "Node.js",
+
+            "nodejs": "Node.js",
+
+            "express.js": "Express.js",
+
+            "expressjs": "Express.js",
+
+            "spring boot": "Spring Boot",
+
+            "rest apis": "REST APIs",
+
+            "rest api": "REST API",
+
+            "api": "API",
+
+            "apis": "APIs",
 
             "git": "Git",
 
             "github": "GitHub",
 
-            "docker": "Docker",
+            "java": "Java",
 
-            "aws": "AWS",
+            "python": "Python",
 
-            "azure": "Azure",
+            "mongodb": "MongoDB",
 
-            "react": "React",
-
-            "angular": "Angular",
-
-            "nlp": "NLP",
-
-            "machine learning": "Machine Learning",
-
-            "artificial intelligence": "Artificial Intelligence",
-
-            "ai": "AI",
-
-            "pandas": "Pandas",
-
-            "numpy": "NumPy",
-
-            "matplotlib": "Matplotlib",
-
-            "tensorflow": "TensorFlow",
-
-            "pytorch": "PyTorch",
-
-            "jwt": "JWT",
-
-            "jpa": "JPA",
-
-            "hibernate": "Hibernate",
-
-            "dsa": "DSA",
-
-            "data structures": "Data Structures",
-
-            "algorithms": "Algorithms",
-
-            "dbms": "DBMS",
-
-            "oop": "OOP",
-
-            "tf-idf": "TF-IDF",
-
-            "cosine similarity": "Cosine Similarity"
+            "sqlite": "SQLite",
 
         };
 
 
-        const lowerSkill =
-            skill
-                .toLowerCase()
-                .trim();
-
-
         if (
-            specialNames[lowerSkill]
+            specialCases[normalizedSkill]
         ) {
 
-            return specialNames[lowerSkill];
+            return specialCases[normalizedSkill];
 
         }
 
@@ -1367,10 +2459,6 @@
     }
 
 
-    // --------------------------------------------------
-    // Status Message
-    // --------------------------------------------------
-
     function showStatus(
         element,
         message,
@@ -1385,19 +2473,10 @@
             "block";
 
 
-        element.style.padding =
-            "12px";
-
-
-        element.style.borderRadius =
-            "8px";
-
-
         if (type === "success") {
 
             element.style.background =
                 "#dcfce7";
-
 
             element.style.color =
                 "#166534";
@@ -1407,13 +2486,14 @@
             element.style.background =
                 "#fee2e2";
 
-
             element.style.color =
                 "#991b1b";
 
         }
 
     }
+    loadInterviewHistory();
+    loadInterviewAnalytics();
 
 
 </script>
