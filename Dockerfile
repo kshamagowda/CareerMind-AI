@@ -8,4 +8,4 @@ RUN ./mvnw clean package -DskipTests
 
 EXPOSE 8081
 
-CMD ["sh", "-c", "java -jar target/careermind-0.0.1-SNAPSHOT.jar --server.port=${PORT:-8081}"]
+CMD ["sh", "-c", "java -Djava.net.preferIPv4Stack=true -jar target/careermind-0.0.1-SNAPSHOT.jar --server.port=${PORT:-8081}"]
